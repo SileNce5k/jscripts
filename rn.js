@@ -1,5 +1,5 @@
 if(process.argv.length < 3 || process.argv[2] == "--help"){
-	console.log("Usage: node randomnumbers.js <how_many_digits_you_need>");
+	console.log("Usage: node rn.js <how_many_digits_you_need>");
 	process.exit(1);
 }
 const digits = process.argv[2];
