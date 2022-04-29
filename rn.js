@@ -36,7 +36,6 @@ function g(digits){
 		let result = m[i]+x;
 		if(count != 0)
 			process.stdout.write(", ");
-		//console.log(result);
 		process.stdout.write(`${result}`)
 		count += 1;
 	}
