@@ -21,7 +21,7 @@ if(process.argv.length > 4){
 function g(digits){
 	let m = [digits];
 	for (let i = 0; i < digits; i++) {
-		m[i] = Math.round(Math.random() * maxNumbers);
+		m.push(Math.round(Math.random() * maxNumbers))
 	}	
 	let count = 0;
 	for(let i = 0; i < m.length; i++){
