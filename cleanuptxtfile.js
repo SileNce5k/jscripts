@@ -2,6 +2,7 @@
 // First arg is path to file
 
 const fs = require('fs');
+const path = require('path');
 
 
 function argHandler(args){
@@ -34,11 +35,11 @@ function cleanFile(pathToTextFile) {
 	let file = fs.readFileSync(pathToTextFile).toString();
 	const regex = /(\[)(.*)(\])/gm
 	file = file.replace(regex, "");
-	fs.writeFileSync(`CLEANED.txt`, file);
+	let newPath = `CLEANED_${path.basename(pathToTextFile)}`
+	fs.writeFileSync(newPath, file);
+	console.log(`\nWrote new file to ${newPath}`)
 }
 
 let pathToTextFile = argHandler(process.argv);
 
 fs.existsSync(pathToTextFile) ? cleanFile(pathToTextFile) : fileNotFound(pathToTextFile)
-
-console.log(process.argv[2])
