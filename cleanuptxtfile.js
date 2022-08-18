@@ -27,19 +27,19 @@ function printHelp(){
 }
 
 function fileNotFound(pathToTextFile) {
-	console.log(`FILE NOT FOUND: ${pathToTextFile}\n`)
-	process.exit(404)
+	console.log(`FILE NOT FOUND: ${pathToTextFile}\n`);
+	process.exit(404);
 }
 
 function cleanFile(pathToTextFile) {
 	let file = fs.readFileSync(pathToTextFile).toString();
-	const regex = /(\[)(.*)(\])/gm
+	const regex = /(\[)(.*)(\])/gm;
 	file = file.replace(regex, "");
-	let newPath = `CLEANED_${path.basename(pathToTextFile)}`
+	let newPath = `CLEANED_${path.basename(pathToTextFile)}`;
 	fs.writeFileSync(newPath, file);
-	console.log(`\nWrote new file to ${newPath}`)
+	console.log(`\nWrote new file to ${newPath}`);
 }
 
 let pathToTextFile = argHandler(process.argv);
 
-fs.existsSync(pathToTextFile) ? cleanFile(pathToTextFile) : fileNotFound(pathToTextFile)
+fs.existsSync(pathToTextFile) ? cleanFile(pathToTextFile) : fileNotFound(pathToTextFile);
